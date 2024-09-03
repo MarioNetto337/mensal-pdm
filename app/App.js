@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import carinha from "./src/componentes/img/simple-cat-expression-png.webp";
-import { catFacts } from "./src/constants/randowfacts";
-import CadastroScreen from './src/screens/CadastroScreen';
+import React, { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import carinha from "./src/componentes/img/simple-cat-expression-png.webp"
+import { catFacts } from "./src/constants/randowfacts"
+import CadastroScreen from './src/screens/CadastroScreen'
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function HomeScreen({ navigation }) {
-  const [showFact, setShowFact] = useState(false);
-  const [fact, setFact] = useState('');
+  const [showFact, setShowFact] = useState(false);
+  const [fact, setFact] = useState('');
 
   const showRandomFact = () => {
-    const randomIndex = Math.floor(Math.random() * catFacts.length);
-    setFact(catFacts[randomIndex]);
-    setShowFact(true);
-  };
+    const randomIndex = Math.floor(Math.random() * catFacts.length);
+    setFact(catFacts[randomIndex]);
+    setShowFact(true);
+  };
 
   return (
     <View style={styles.container}>
@@ -44,7 +44,7 @@ function HomeScreen({ navigation }) {
 
       <StatusBar style="auto" />
     </View>
-  );
+  );
 }
 
 export default function App() {
@@ -55,7 +55,7 @@ export default function App() {
         <Stack.Screen name="Cadastro" component={CadastroScreen} options={{ title: 'Cadastro' }} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
+  );
 }
 
 const styles = StyleSheet.create({
@@ -115,4 +115,4 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#fff',
   },
-});
+});

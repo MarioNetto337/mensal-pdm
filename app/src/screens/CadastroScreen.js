@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, Alert } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, { useState } from 'react';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function CadastroScreen({ route, navigation }) {
-  const [inputValue, setInputValue] = useState('');
-  const [facts, setFacts] = useState(route.params?.facts || []); // Recebe o array de fatos da tela anterior
+  const [inputValue, setInputValue] = useState('');
+  const [facts, setFacts] = useState(route.params?.facts || []); // Recebe o array de fatos da tela anterior
 
   const handleAddFact = async () => {
     if (inputValue.trim()) {
-      const newFacts = [...facts, inputValue];
-      setFacts(newFacts); // Adiciona o novo fato ao array
-      setInputValue(''); // Limpa o campo de entrada
-      Alert.alert('Sucesso', 'Fato cadastrado com sucesso!'); // Mensagem de sucesso
+      const newFacts = [...facts, inputValue];
+      setFacts(newFacts); // Adiciona o novo fato ao array
+      setInputValue(''); // Limpa o campo de entrada
+      Alert.alert('Sucesso', 'Fato cadastrado com sucesso!'); // Mensagem de sucesso
 
       // Salva os fatos no AsyncStorage
       try {
-        await AsyncStorage.setItem('@cat_facts', JSON.stringify(newFacts));
+        await AsyncStorage.setItem('@cat_facts', JSON.stringify(newFacts));
       } catch (error) {
-        console.error('Erro ao salvar os fatos no AsyncStorage:', error);
+        console.error('Erro ao salvar os fatos no AsyncStorage:', error);
       }
     } else {
-      Alert.alert('Erro', 'O campo de entrada está vazio.'); // Mensagem de erro
+      Alert.alert('Erro', 'O campo de entrada está vazio.'); // Mensagem de erro
     }
-  };
+  };
 
   return (
     <View style={styles.container}>
@@ -37,7 +37,7 @@ export default function CadastroScreen({ route, navigation }) {
         <Text style={styles.buttonText}>Enviar</Text>
       </TouchableOpacity>
     </View>
-  );
+  );
 }
 
 const styles = StyleSheet.create({
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#fff', // Cor do texto (branco)
   },
-});
+});

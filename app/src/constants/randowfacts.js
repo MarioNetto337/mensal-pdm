@@ -29,4 +29,4 @@ export  const catFacts = [
     "Gatos têm uma espinha dorsal extremamente flexível, o que lhes permite serem muito ágeis.",
     "Os bigodes dos gatos são altamente sensíveis e podem detectar até mesmo pequenas mudanças no ambiente.",
     "Gatos geralmente preferem a comida morna, a uma temperatura próxima à de suas presas."
-  ];
+  ];
